@@ -1,156 +1,168 @@
 
-# **UltiPrompting**
+# **UltiPrompting: Advanced Prompting Framework for Fullstack Applications**
 
-**UltiPrompting** is an engineered prompting architecture designed to streamline the creation of comprehensive documentation and support the iterative development of complex applications. It provides a dual-prompt system: one for creating robust documentation and another for working on the program based on that documentation. 
-
-This approach ensures that projects are thoroughly planned, systematically developed, and rigorously validated.
+**UltiPrompting** combines cutting-edge techniques in prompt engineering with an easy-to-use, modular approach for creating fully functional fullstack applications. This README provides clear, step-by-step instructions to guide the development process.
 
 ---
 
-## **Core Features**
+## **How to Use the UltiPrompting Framework**
 
-### **1. Comprehensive Documentation Creation**
-UltiPrompting provides a structured workflow for generating high-quality documentation that serves as the foundation for building complex applications. It guides users through:
-- Defining the project’s goals, audience, and unique value.
-- Identifying key features, system architecture, and technical requirements.
-- Mapping dependencies, data flows, and testing strategies.
-
-### **2. Iterative Development**
-A secondary prompt ensures continuous progress by:
-- Analyzing existing documentation and progress logs.
-- Planning and executing the next logical task (coding, testing, or refining documentation).
-- Validating changes and updating the progress log.
+Follow these steps sequentially to create and refine a fullstack application:
 
 ---
 
-## **Quick Start**
+### **Step 1: Start with Documentation Creation**
 
-### **Prompt 1: Comprehensive Documentation Creation**
+The foundation of any project begins with strong documentation.
 
-Use the following workflow to create detailed documentation for your project:
+#### **Prompt**
+```plaintext
+Create complete project documentation. Follow these steps:
 
-#### **Step 1: Ask Iterative Questions**
-Collect all necessary information by answering questions in these categories:
+### Step 1: Gather Information
+1. Ask detailed questions to collect all necessary information:
+   - What is the product’s name and purpose?
+   - Who is the target audience?
+   - What are the must-have features?
 
-- **Project Overview**:
-  - What is the product’s name and purpose?
-  - What problem does it solve?
-  - Who is the target audience, and what are their needs?
-  - What are the primary use cases?
+### Step 2: Build Documentation Files
+1. Create or update the following files:
+   - `/docs/overview.md`: Project goals, target audience, and key value.
+   - `/docs/features.md`: Detailed feature list with dependencies and scenarios.
+   - `/docs/system_architecture.md`: Diagrams and communication flows.
+   - `/docs/agents.md`: Detailed descriptions of each agent’s purpose, functionality, and specific tasks.
+     ```plaintext
+     ## Example Agent Entry
+     ### MVP Agent
+     Purpose: Build a browser-testable Minimum Viable Product.
+     Triggers: Missing or incomplete core features.
+     Workflow:
+       - Identify and implement essential features.
+       - Test functionality in a browser environment.
+       - Log outcomes in `/docs/progress_X.md`.
 
-- **Features**:
-  - What are the must-have, nice-to-have, and future features?
-  - How should these features interact with each other?
-  - Are there edge cases or specific scenarios?
+     ### Testing Agent
+     Purpose: Validate the robustness of the application.
+     Triggers: New features added or bugs identified.
+     Workflow:
+       - Create and execute unit, integration, and end-to-end tests.
+       - Log test results and gaps in `/docs/progress_X.md`.
+       - Propose fixes for failures.
 
-- **System Design**:
-  - What architecture will the system use (e.g., monolith, microservices)?
-  - What are the main components (frontend, backend, APIs, database)?
-  - Are there any third-party APIs or integrations?
-
-- **Technical Stack**:
-  - What programming languages, frameworks, and tools are required?
-  - Which platforms should it support (web, mobile, desktop)?
-  - Are there constraints or preferences for hosting and deployment?
-
-- **Data Management**:
-  - What data will the application manage?
-  - How should data flow between components?
-  - What security, integrity, and privacy measures are required?
-
-#### **Step 2: Build the Documentation**
-Generate the following files to create a solid foundation for development:
-- `/docs/overview.md`: Goals, audience, and high-level summary.
-- `/docs/features.md`: Detailed feature list, functionality, and dependencies.
-- `/docs/system_architecture.md`: Architecture diagrams and communication flows.
-- `/docs/api_specifications.md`: API endpoints, request/response formats, and error handling.
-- `/docs/database_schema.md`: Detailed database schema with relationships and constraints.
-- `/docs/technical_stack.md`: Programming languages, frameworks, and tools used.
-- `/docs/testing_plan.md`: Testing strategies and key test cases.
-- `/docs/deployment_strategy.md`: CI/CD pipelines, hosting, and scaling plans.
-- `/docs/progress.md`: Progress log for iterative updates.
-
-#### **Step 3: Progress Log Template**
-Maintain a clear progress log for every update in `/docs/progress.md`:
-
-```markdown
-# Project Progress Log
-
-## Date: [YYYY-MM-DD]
-
-### **Tasks Completed**
-- Description of completed tasks.
-- Files created, updated, or deleted and their purpose.
-
-### **Key Features/Components Added**
-- Detailed list of new features or modules.
-- How they interact with existing components.
-
-### **Potential Problems or Challenges**
-- Issues encountered and how they were addressed.
-- Unresolved dependencies or risks.
-
-### **Best Practices Checklist**
-- DRY, SOLID, modularity, scalability, and security standards confirmed.
-- Reviewed all feature interactions for conflicts or gaps.
-
-### **Next Steps**
-- Outline tasks for the next iteration.
-- List questions or areas needing clarification.
+     ### Design Agent
+     Purpose: Refine system architecture and user experience.
+     Triggers: Need for optimization or design updates.
+     Workflow:
+       - Propose architectural improvements.
+       - Create or update design diagrams in `/docs/system_architecture.md`.
+       - Ensure compatibility with existing features.
+     ```
+2. Validate the initial documentation for completeness and alignment with project goals.
 ```
 
 ---
 
-### **Prompt 2: Iterative Development and Testing**
+### **Step 2: Progress Documentation Management**
 
-Use this structured prompt to iteratively develop the application:
+Keep track of development progress with detailed logs.
 
-#### **Step 1: Analyze and Understand the Current State**
-1. Review `/docs/progress.md` for:
-   - Tasks completed in the last iteration.
-   - Issues encountered and next steps proposed.
-2. Cross-reference `/docs/features.md`, `/docs/system_architecture.md`, `/docs/api_specifications.md`, and `/docs/database_schema.md` to ensure all dependencies and interactions are clear.
+#### **Prompt**
+```plaintext
+Manage progress documentation dynamically. Follow these steps:
 
-#### **Step 2: Plan the Next Task**
-- Identify and prioritize tasks that:
-  - Have dependencies on previously completed work.
-  - Are required for core functionality or milestones.
-  - Resolve existing gaps or issues.
-- Propose coding, testing, or (if necessary) documentation tasks.
+### Step 1: Check Existing Progress Logs
+1. Scan the `/docs/` directory for the latest progress file (e.g., `progress_X.md`).
+   - If no progress file exists, create `/docs/progress_1.md`.
+   - Use the highest-indexed file for ongoing work.
 
-#### **Step 3: Execute the Task**
-- **Code**: Write clean, modular, maintainable code. Follow best practices (DRY, SOLID, security, scalability).
-- **Test**: Write and run unit, integration, and end-to-end tests to validate functionality.
+### Step 2: Log Development Activities
+1. Update the current progress file with:
+   - Tasks completed.
+   - Challenges or blockers encountered.
+   - Next steps or proposed tasks.
 
-#### **Step 4: Validate Changes**
-- Check compatibility with existing components.
-- Execute regression tests to ensure no functionality is broken.
-- Highlight risks, edge cases, or limitations.
-
-#### **Step 5: Update the Progress Log**
-Log all tasks, testing results, and proposed next steps in `/docs/progress.md`.
+### Step 3: Archive and Create New Logs
+1. At the end of an iteration:
+   - Rename the current file as archived (e.g., `/docs/progress_X_archived.md`). Use a clear naming convention such as including the date or task in the filename (e.g., `/docs/progress_2023-12-01_archived.md`).
+   - Create a new progress file incrementing the index (e.g., `/docs/progress_X+1.md`) to maintain clarity and organization.
+```
 
 ---
 
-## **Contributing**
+### **Step 3: Iterate and Execute Tasks Dynamically**
 
-Contributions are welcome! To contribute:
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push to your branch.
-5. Open a pull request.
+This step replaces the need for a separate agent selection step by integrating both agent selection and task execution into a single prompt.
+
+#### **Prompt**
+```plaintext
+Iteratively refine the application and execute tasks dynamically. Follow these steps:
+
+### Step 1: Retrieve Context
+1. Open `/docs/progress_X.md` to review and explicitly fetch the following data:
+   - Tasks completed in the last iteration.
+   - Pending tasks or blockers.
+   - Proposed next steps.
+Ensure the AI reads and interprets the data directly from the file to maintain continuity and avoid context loss.
+2. Cross-reference `/docs/agents.md` to determine the relevant agent:
+   - Identify the agent whose triggers match the current progress log. Ensure that workflows in `/docs/agents.md` are detailed enough to handle complex tasks or dependencies, including edge cases and multi-step processes.
+   - Retrieve the agent’s workflow for execution, and validate it against the current project requirements.
+
+### Step 2: Execute the Task
+1. Follow the workflow for the selected agent:
+   - For MVP Agent: Implement core features and test them in a browser.
+   - For Testing Agent: Write and execute tests, then document results.
+   - For Design Agent: Refine architecture diagrams and ensure compatibility.
+2. Ensure tasks adhere to best practices:
+   - Modular, scalable, and maintainable code.
+   - Validated outputs with tests and reviews.
+   - Include manual validation steps to confirm the tasks meet project goals and align with the expected outcomes beyond automated testing.
+
+### Step 3: Log Progress and Propose Next Steps
+1. Update `/docs/progress_X.md` with:
+   - Tasks completed and their outcomes.
+   - Challenges encountered and how they were resolved.
+   - Next steps or recommendations for the following iteration.
+```
+
+---
+
+## **How the Prompts Work Together to Create Fullstack Applications**
+
+The UltiPrompting framework is designed to guide you step-by-step through the development process of a fullstack application. Here’s how the prompts interact to deliver results:
+
+1. **Documentation Creation (Step 1)**:
+   - Establishes the foundation by defining the product, its features, and the technical requirements.
+   - Creates `/docs/agents.md`, detailing the role of each agent, triggers, and workflows.
+
+2. **Progress Documentation Management (Step 2)**:
+   - Keeps an ongoing log of actions, ensuring clarity and traceability.
+   - Enables agents to dynamically manage tasks without duplication.
+
+3. **Iterative Execution and Refinement (Step 3)**:
+   - Dynamically selects the appropriate agent based on `/docs/progress_X.md` and `/docs/agents.md`.
+   - Executes workflows specific to the agent (e.g., MVP creation, testing, or design refinement).
+   - Logs progress and proposes next steps for iterative improvement.
+
+### **Using the Prompts to Develop Fullstack Applications**
+
+#### **Step 1: Start with Documentation**
+- Begin by creating the foundational documentation for your project.
+- Use the **Step 1 Prompt** to generate `/docs/overview.md`, `/docs/features.md`, `/docs/system_architecture.md`, and `/docs/agents.md`.
+
+#### **Step 2: Manage Progress**
+- Use the **Step 2 Prompt** to keep your progress logs organized and up-to-date.
+- Ensure that all completed tasks, blockers, and next steps are recorded in `/docs/progress_X.md`.
+
+#### **Step 3: Execute and Iterate**
+- Use the **Step 3 Prompt** repeatedly to:
+  - Retrieve context dynamically from the documentation.
+  - Select the relevant agent and execute its workflow.
+  - Log all progress and refine the application iteratively.
+
+By following these steps, you can efficiently create, test, and refine a fullstack application while maintaining clarity and structure throughout the development lifecycle.
 
 ---
 
 ## **License**
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-## **Why UltiPrompting?**
-UltiPrompting ensures:
-- **Seamless Development**: Comprehensive documentation and structured prompts eliminate ambiguity.
-- **Robust Testing**: Integrated testing strategies guarantee quality and reliability.
-- **Iterative Refinement**: Continuous updates keep the project aligned with its goals.
